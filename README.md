@@ -245,6 +245,7 @@ Implementation of the basic standard token
 # **BurnableToken: *contract*** 
 
 <br/> 
+
 ### Description 
 
  
