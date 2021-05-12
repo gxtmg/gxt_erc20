@@ -167,17 +167,12 @@ Basic version of StandardToken, with no allowances.
 ```
 
  
-
- 
-
- 
-
+<br/><br/>
  
 
 # **StandardToken: *contract*** 
 
- 
-
+<br/>
  
 
 ## Description 
@@ -186,7 +181,7 @@ Basic version of StandardToken, with no allowances.
 
 Implementation of the basic standard token 
 
- 
+<br/> 
 
 ## Functions 
 
@@ -244,16 +239,12 @@ Implementation of the basic standard token
     decreaseApproval (address _spender, uint _subtractedValue) 
 ```
 
- 
-
- 
-
+<br/><br/>
  
 
 # **BurnableToken: *contract*** 
 
- 
-
+<br/> 
 ### Description 
 
  
@@ -261,7 +252,7 @@ Implementation of the basic standard token
 Token that can be irreversibly burned (destroyed). 
 
  
-
+<br/>
 ### Functions 
 
  
@@ -273,21 +264,18 @@ Token that can be irreversibly burned (destroyed).
 ```
      burn (uint256 _value) onlyOwner public 
 ```
-
- 
-
   
-
+<br/><br/>
 # **Token: *contract*** 
 
  
-
+<br/>
 ### Description 
 
 토큰 기본정보 설정 
 
  
-
+<br/>
 ### Functions 
 
  
