@@ -13,6 +13,10 @@
 
 
 
+
+
+
+
 | Contract         | Type | Description                                                  |
 | ---------------- | ---- | ------------------------------------------------------------ |
 | Name             | Read | 토큰명 (*string* ) Gem Exchange and Trading                  |
@@ -27,6 +31,10 @@
 | lockedAddresses  | Read | 주소 락 여부 ( true:전송불가 ) (address) <input>             |
 | locked           | Read | 컨트랙트 락 여부 ( true:전체락 ) (bool) False                |
 | allowance        | Read | owner가 spender에게 전송을 허락한 토큰 개수 (address) _owner (address) _spender |
+
+
+
+
 
 
 
@@ -46,32 +54,32 @@ The Ownable contract has an owner address, and provides basic authorization cont
 
  
 
-###### Ownable 
+- ###### Ownable 
 
-​	The Ownable constructor sets the original `owner` of the contract to the sender account 
+  The Ownable constructor sets the original `owner` of the contract to the sender account 
 
 ```
-Ownable() 
+    Ownable() 
 ```
 
  
 
-######  onlyOwner 
+- ###### onlyOwner 
 
-​	Throws if called by any account other than the owner. 	
+  Throws if called by any account other than the owner. 	
 
 ```
-onlyOwner () 
+     onlyOwner () 
 ```
 
   
 
-######  transferOwnership 
+- ######  transferOwnership 
 
- 	Allows the current owner to transfer control of the contract to a newOwner. 
+  Allows the current owner to transfer control of the contract to a newOwner. 
 
 ```
- **transferOwnership**(address newOwner) onlyOwner public() 
+     transferOwnership(address newOwner) onlyOwner public() 
 ```
 
  
@@ -110,60 +118,60 @@ Basic version of StandardToken, with no allowances.
 
  
 
-###### allowAddress 
+- ###### allowAddress 
 
- allowedAddresses will be able to transfer even when locked 
-
-```
-**allowAddress**(address _addr, bool _allowed) public onlyOwner 
-```
-
- 
-
-######  lockAddress 
-
- allowedAddresses will be able to transfer even when locked 
+   allowedAddresses will be able to transfer even when locked 
 
 ```
-**lockAddress**(address _addr, bool _locked) public onlyOwner 
+    allowAddress(address _addr, bool _allowed) public onlyOwner 
 ```
 
  
 
-######  setLocked  	
+- ######  lockAddress 
+
+   allowedAddresses will be able to transfer even when locked 
 
 ```
-setLocked(bool _locked) public onlyOwner 
-```
-
- 
-
-######  canTransfer 
-
-```
-**canTransfer**(address _addr) public constant returns (bool) 
+    lockAddress(address _addr, bool _locked) public onlyOwner 
 ```
 
  
 
- 
-
-###### transfer 
-
- transfer token for a specified address 
+- ######  setLocked  	
 
 ```
-**transfer**(address _to, uint256 _value) public returns (bool) 
+    setLocked(bool _locked) public onlyOwner 
 ```
 
  
 
-###### balanceOf 
-
- Gets the balance of the specified address 
+- ######  canTransfer 
 
 ```
-**balanceOf**(address _owner) public constant returns (uint256 balance) 
+    canTransfer(address _addr) public constant returns (bool) 
+```
+
+ 
+
+ 
+
+- ###### transfer 
+
+   transfer token for a specified address 
+
+```
+    transfer(address _to, uint256 _value) public returns (bool) 
+```
+
+ 
+
+- ###### balanceOf 
+
+   Gets the balance of the specified address 
+
+```
+    balanceOf(address _owner) public constant returns (uint256 balance) 
 ```
 
  
@@ -192,56 +200,56 @@ Implementation of the basic standard token
 
  
 
-###### transferFrom 
+- ###### transferFrom 
 
- Transfer tokens from one address to another 
-
-```
-**transferFrom**(address _from, address _to, uint256 _value) public returns (bool) 
-```
-
- 
-
- 
-
-######  approve 
-
- Approve the passed address to spend the specified amount of tokens on behalf of msg.sender 
+   Transfer tokens from one address to another 
 
 ```
-**approve**(address _spender, uint256 _value) public returns (bool) 
+    transferFrom(address _from, address _to, uint256 _value) public returns (bool) 
 ```
 
  
 
  
 
-###### allowance 
+- ######  approve 
 
- Function to check the amount of tokens that an owner allowed to a spender 
-
-```
-**allowance**(address _owner, address _spender) public constant returns (uint256 remaining) 
-```
-
- 
-
-###### increaseApproval 
-
-approve should be called when allowed[_spender] == 0. 
-
-To increment allowed value is better to use this function to avoid 2 calls  
+   Approve the passed address to spend the specified amount of tokens on behalf of msg.sender 
 
 ```
-**increaseApproval** (address _spender, uint _addedValue) 
+    approve(address _spender, uint256 _value) public returns (bool) 
 ```
 
  
 
-###### decreaseApproval 
+ 
+
+- ###### allowance 
+
+   Function to check the amount of tokens that an owner allowed to a spender 
 
 ```
-**decreaseApproval** (address _spender, uint _subtractedValue) 
+    allowance(address _owner, address _spender) public constant returns (uint256 remaining) 
+```
+
+ 
+
+- ###### increaseApproval 
+
+  approve should be called when allowed[_spender] == 0. 
+
+  To increment allowed value is better to use this function to avoid 2 calls  
+
+```
+    increaseApproval(address _spender, uint _addedValue) 
+```
+
+ 
+
+- ###### decreaseApproval 
+
+```
+    decreaseApproval (address _spender, uint _subtractedValue) 
 ```
 
  
@@ -266,12 +274,12 @@ Token that can be irreversibly burned (destroyed).
 
  
 
-###### burn 
+- ###### burn 
 
-Burns a specific amount of tokens. 
+  Burns a specific amount of tokens. 
 
 ```
- **burn**(uint256 _value) onlyOwner public 
+     burn (uint256 _value) onlyOwner public 
 ```
 
  
@@ -292,21 +300,22 @@ Burns a specific amount of tokens.
 
  
 
-###### Token  
+- ###### Token  
 
 ```
-**Token** () 
+    Token () 
+```
+
+ 
+
+- ###### mintToken  
+
+```
+    mintToken(address target, uint256 mintedAmount) onlyOwner
 ```
 
  
 
-###### mintToken  
-
-```
-**mintToken**(address target, uint256 mintedAmount) onlyOwner
-```
-
- 
 
 
 
