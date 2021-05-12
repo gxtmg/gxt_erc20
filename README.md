@@ -1,284 +1,321 @@
 # gxt_erc20
 
-Ownable : contract 
+| contract      | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| Ownable       | 소유 가능 계약에는 소유자 주소가 있으며 기본 권한 제어를 제공 The Ownable contract has an owner address, and provides basic authorization control |
+| ERC20Basic    | ERC20 인터페이스의 단순한 버전 Simpler version of ERC20 interface |
+| BasicToken    | 기본 표준 토큰 Basic version of StandardToken, with no allowances. |
+| ERC20         | ERC20 interface                                              |
+| StandardToken | 기본 표준 토큰을 구현 Implementation of the basic standard token. |
+| BurnableToken | 되돌리수 없는 소각(파괴) 가능한 토큰 Token that can be irreversibly burned (destroyed). |
+| Token         | 토큰 기본정보 설정, 추가 발행 함수 선언                      |
+|               |                                                              |
 
-  
 
-  
 
-Description 
+| Contract         | Type | Description                                                  |
+| ---------------- | ---- | ------------------------------------------------------------ |
+| Name             | Read | 토큰명 (*string* ) Gem Exchange and Trading                  |
+| totalSupply      | Read | 총 수량 (*uint256*) 500000000000000000000000000              |
+| decimals         | Read | 소수점 단위 (*uint256**) 18*                                 |
+| initialSupply    | Read | 초기 공급량 (*uint256*) 500000000000000000000000000          |
+| allowedAddresses | Read | 주소의 allowed 여부 ( allowed true면 locked true 라도 전송가능 ) (address) <input> |
+| balanceOf        | Read | 주소의 보유량 (address) _owner                               |
+| canTransfer      | Read | 주소의 전송가능 여부 (address) _address                      |
+| owner            | Read | contract의 owner 주소 (address) [0x0fef4bb795eb29701e71737e1933e257ab8b68d9](https://etherscan.io/address/0x0fef4bb795eb29701e71737e1933e257ab8b68d9) |
+| symbol           | Read | 토큰심볼 (string) GXT                                        |
+| lockedAddresses  | Read | 주소 락 여부 ( true:전송불가 ) (address) <input>             |
+| locked           | Read | 컨트랙트 락 여부 ( true:전체락 ) (bool) False                |
+| allowance        | Read | owner가 spender에게 전송을 허락한 토큰 개수 (address) _owner (address) _spender |
+
+
+
+# **Ownable** : *contract* 
+
+ 
+
+### **Description** 
 
  
 
 The Ownable contract has an owner address, and provides basic authorization control 
 
-  
+ 
 
-Functions 
+### Functions 
 
  
 
-Ownable 
+###### Ownable 
 
-The Ownable constructor sets the original `owner` of the contract to the sender account 
+​	The Ownable constructor sets the original `owner` of the contract to the sender account 
 
+```
 Ownable() 
+```
+
+ 
+
+######  onlyOwner 
+
+​	Throws if called by any account other than the owner. 	
+
+```
+onlyOwner () 
+```
 
   
 
- onlyOwner  
-
-Throws if called by any account other than the owner. 
-
-onlyOwner () 
-
-   
-
- transferOwnership 
+######  transferOwnership 
 
  	Allows the current owner to transfer control of the contract to a newOwner. 
 
- transferOwnership(address newOwner) onlyOwner public() 
+```
+ **transferOwnership**(address newOwner) onlyOwner public() 
+```
 
-  
+ 
 
-  
-
-  
-
-  
+# **ERC20Basic: *contract*** 
 
  
 
  
 
-  
-
-ERC20Basic: contract 
-
-  
-
-  
-
-Description 
+### Description 
 
  Simpler version of ERC20 interface 
 
-  
+
+
+
+
+# **BasicToken: *contract*** 
 
  
 
-  
-
-BasicToken: contract 
-
  
 
-  
-
-Description 
+### Description 
 
  
 
 Basic version of StandardToken, with no allowances. 
 
-  
+ 
 
  
 
-Functions 
+### Functions 
 
  
 
-allowAddress 
+###### allowAddress 
 
- 	allowedAddresses will be able to transfer even when locked 
+ allowedAddresses will be able to transfer even when locked 
 
-allowAddress(address _addr, bool _allowed) public onlyOwner 
+```
+**allowAddress**(address _addr, bool _allowed) public onlyOwner 
+```
 
-  
+ 
 
- lockAddress 
+######  lockAddress 
 
- 	allowedAddresses will be able to transfer even when locked 
+ allowedAddresses will be able to transfer even when locked 
 
-lockAddress(address _addr, bool _locked) public onlyOwner 
+```
+**lockAddress**(address _addr, bool _locked) public onlyOwner 
+```
 
-  
+ 
 
- setLocked 
+######  setLocked  	
 
-  	setLocked(bool _locked) public onlyOwner 
+```
+setLocked(bool _locked) public onlyOwner 
+```
 
-  
+ 
 
-  canTransfer 
+######  canTransfer 
 
-canTransfer(address _addr) public constant returns (bool) 
-
-  
-
-  
-
-transfer 
-
- 	transfer token for a specified address 
-
-transfer(address _to, uint256 _value) public returns (bool) 
-
-  
-
-balanceOf 
-
- 	Gets the balance of the specified address 
-
-balanceOf(address _owner) public constant returns (uint256 balance) 
-
-  
-
-  
+```
+**canTransfer**(address _addr) public constant returns (bool) 
+```
 
  
 
  
 
-StandardToken: contract 
+###### transfer 
+
+ transfer token for a specified address 
+
+```
+**transfer**(address _to, uint256 _value) public returns (bool) 
+```
 
  
 
-  
+###### balanceOf 
 
-Description 
+ Gets the balance of the specified address 
+
+```
+**balanceOf**(address _owner) public constant returns (uint256 balance) 
+```
+
+ 
+
+ 
+
+ 
+
+ 
+
+# **StandardToken: *contract*** 
+
+ 
+
+ 
+
+## Description 
 
  
 
 Implementation of the basic standard token 
 
-  
+ 
 
-Functions 
-
-  
-
-transferFrom 
-
- 	Transfer tokens from one address to another 
-
-transferFrom(address _from, address _to, uint256 _value) public returns (bool) 
+## Functions 
 
  
 
-  
+###### transferFrom 
 
- approve 
+ Transfer tokens from one address to another 
 
- 	Approve the passed address to spend the specified amount of tokens on behalf of msg.sender 
-
-approve(address _spender, uint256 _value) public returns (bool) 
+```
+**transferFrom**(address _from, address _to, uint256 _value) public returns (bool) 
+```
 
  
 
  
 
-allowance 
+######  approve 
 
- 	Function to check the amount of tokens that an owner allowed to a spender 
+ Approve the passed address to spend the specified amount of tokens on behalf of msg.sender 
 
-allowance(address _owner, address _spender) public constant returns (uint256 remaining) 
-
- 
-
-increaseApproval 
-
-approve should be called when allowed[_spender] == 0.  
-
-To increment allowed value is better to use this function to avoid 2 calls 
-
- 	increaseApproval (address _spender, uint _addedValue) 
-
- 
-
-decreaseApproval 
-
-decreaseApproval (address _spender, uint _subtractedValue) 
+```
+**approve**(address _spender, uint256 _value) public returns (bool) 
+```
 
  
 
  
 
+###### allowance 
+
+ Function to check the amount of tokens that an owner allowed to a spender 
+
+```
+**allowance**(address _owner, address _spender) public constant returns (uint256 remaining) 
+```
+
  
 
-BurnableToken: contract 
+###### increaseApproval 
 
-  
+approve should be called when allowed[_spender] == 0. 
 
-Description 
+To increment allowed value is better to use this function to avoid 2 calls  
+
+```
+**increaseApproval** (address _spender, uint _addedValue) 
+```
+
+ 
+
+###### decreaseApproval 
+
+```
+**decreaseApproval** (address _spender, uint _subtractedValue) 
+```
+
+ 
+
+ 
+
+ 
+
+# **BurnableToken: *contract*** 
+
+ 
+
+### Description 
 
  
 
 Token that can be irreversibly burned (destroyed). 
 
-  
+ 
 
-Functions 
+### Functions 
 
  
 
-burn 
+###### burn 
 
 Burns a specific amount of tokens. 
 
- 	burn(uint256 _value) onlyOwner public 
+```
+ **burn**(uint256 _value) onlyOwner public 
+```
 
  
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-페이지 나누기
- 
-
-Token: contract 
 
   
 
-Description 
+# **Token: *contract*** 
+
+ 
+
+### Description 
 
 토큰 기본정보 설정 
 
-  
+ 
 
-Functions 
+### Functions 
 
  
 
-Token 
+###### Token  
 
- 	Token () 
+```
+**Token** () 
+```
+
+ 
+
+###### mintToken  
+
+```
+**mintToken**(address target, uint256 mintedAmount) onlyOwner
+```
 
  
 
-mintToken 
 
- 	mintToken(address target, uint256 mintedAmount) onlyOwner 
 
- 
+
+
+
+
+
+
+
 
  
