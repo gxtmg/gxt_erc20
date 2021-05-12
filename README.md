@@ -15,8 +15,6 @@
 
 
 
-
-
 | Contract         | Type | Description                                                  |
 | ---------------- | ---- | ------------------------------------------------------------ |
 | Name             | Read | 토큰명 (*string* ) Gem Exchange and Trading                  |
@@ -33,14 +31,13 @@
 | allowance        | Read | owner가 spender에게 전송을 허락한 토큰 개수 (address) _owner (address) _spender |
 
 
-
-
+<br/><br/>
 
 
 
 # **Ownable** : *contract* 
 
- 
+<br/>
 
 ### **Description** 
 
@@ -48,7 +45,7 @@
 
 The Ownable contract has an owner address, and provides basic authorization control 
 
- 
+<br/> 
 
 ### Functions 
 
@@ -81,36 +78,31 @@ The Ownable contract has an owner address, and provides basic authorization cont
 ```
      transferOwnership(address newOwner) onlyOwner public() 
 ```
-
+<br/><br/>
  
 
 # **ERC20Basic: *contract*** 
 
- 
-
- 
+ <br/> 
 
 ### Description 
 
  Simpler version of ERC20 interface 
 
 
-
+<br/><br/>
 
 
 # **BasicToken: *contract*** 
 
  
-
- 
-
 ### Description 
 
- 
+<br/>
 
 Basic version of StandardToken, with no allowances. 
 
- 
+<br/>
 
  
 
