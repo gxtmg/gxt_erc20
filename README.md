@@ -253,6 +253,7 @@ Token that can be irreversibly burned (destroyed).
 
  
 <br/>
+
 ### Functions 
 
  
@@ -266,16 +267,19 @@ Token that can be irreversibly burned (destroyed).
 ```
   
 <br/><br/>
+
 # **Token: *contract*** 
 
  
 <br/>
+
 ### Description 
 
 토큰 기본정보 설정 
 
  
 <br/>
+
 ### Functions 
 
  
