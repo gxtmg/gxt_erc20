@@ -1,5 +1,5 @@
 /**
- *Submitted for verification at Etherscan.io on 2020-07-21
+ *Submitted for verification at Etherscan.io on 2021-11-10
 */
 
 pragma solidity ^0.4.12;
@@ -199,7 +199,7 @@ contract StandardToken is ERC20, BasicToken {
 
   function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {
     require(_to != address(0));
-    require(canTransfer(msg.sender));
+    require(canTransfer(_from));
 
     uint256 _allowance = allowed[_from][msg.sender];
 
@@ -273,6 +273,7 @@ contract StandardToken is ERC20, BasicToken {
 
 }
 
+
 /**
  * @title Burnable Token
  * @dev Token that can be irreversibly burned (destroyed).
@@ -325,16 +326,5 @@ contract Token is BurnableToken {
         balances[msg.sender] = initialSupply; // Send all tokens to owner
         allowedAddresses[owner] = true;
     }
-
-	//minting function
-
-    function mintToken(address target, uint256 mintedAmount) onlyOwner {
-        balances[target] += mintedAmount;
-        totalSupply += mintedAmount;
-        Transfer(0, this, mintedAmount);
-        Transfer(this, target, mintedAmount);
-    }
-
- 
 
 }
