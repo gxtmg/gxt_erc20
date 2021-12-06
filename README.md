@@ -8,7 +8,7 @@
 | ERC20         | ERC20 interface                                              |
 | StandardToken | 기본 표준 토큰을 구현 Implementation of the basic standard token. |
 | BurnableToken | 되돌리수 없는 소각(파괴) 가능한 토큰 Token that can be irreversibly burned (destroyed). |
-| Token         | 토큰 기본정보 설정, 추가 발행 함수 선언                      |
+| Token         | 토큰 기본정보 설정                                               |
 |               |                                                              |
 
 <br/><br/>
@@ -24,7 +24,7 @@
 | allowedAddresses | Read | 주소의 allowed 여부 ( allowed true면 locked true 라도 전송가능 ) (address) <input> |
 | balanceOf        | Read | 주소의 보유량 (address) _owner                               |
 | canTransfer      | Read | 주소의 전송가능 여부 (address) _address                      |
-| owner            | Read | contract의 owner 주소 (address) [0x0fef4bb795eb29701e71737e1933e257ab8b68d9](https://etherscan.io/address/0x0fef4bb795eb29701e71737e1933e257ab8b68d9) |
+| owner            | Read | contract의 owner 주소 (address) [0xec31680a820a241652312e1b11fae71824ee1fa2](https://etherscan.io/address/0xec31680a820a241652312e1b11fae71824ee1fa2) |
 | symbol           | Read | 토큰심볼 (string) GXT                                        |
 | lockedAddresses  | Read | 주소 락 여부 ( true:전송불가 ) (address) <input>             |
 | locked           | Read | 컨트랙트 락 여부 ( true:전체락 ) (bool) False                |
@@ -291,13 +291,6 @@ Token that can be irreversibly burned (destroyed).
     Token () 
 ```
 
- 
-
-- ###### mintToken  
-
-```
-    mintToken(address target, uint256 mintedAmount) onlyOwner
-```
 
  
 
